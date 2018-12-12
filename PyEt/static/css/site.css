@@ -1,0 +1,61 @@
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 100;
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: .05rem solid #e7e9ed;
+}
+
+.table td,
+.table th {
+    border-bottom: .05rem solid #e7e9ed;
+    padding: .2rem .4rem;
+}
+
+.container.grid-xxl {
+    max-width: 1536px;
+}
+  
+.btn-fix-6 {
+    width: 6em
+}
+
+.btn-fix-10 {
+    width: 10em
+}
+
+.absolute {
+    position: absolute;
+}
+
+.m-3 {
+    margin: .6rem !important;
+}
+
+.mb-3 {
+    margin-bottom: .6rem !important;
+}
+
+.ml-3 {
+    margin-left: .6rem !important;
+}
+
+.mr-3 {
+    margin-right: .6rem !important;
+}
+
+.mt-3 {
+    margin-top: .6rem !important;
+}
+
+.mx-3 {
+    margin-left: .6rem !important;
+    margin-right: .6rem !important;
+}
+
+.my-3 {
+    margin-bottom: .6rem !important;
+    margin-top: .6rem !important;
+}

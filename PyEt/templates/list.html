@@ -1,0 +1,33 @@
+{%extends "layout.html"%}
+
+{%block content%}
+
+<div class="container grid-xl">
+    <table class="table table-striped table-hover">
+        <caption>Your List of Dietaries</caption>
+        <thead>
+            <tr>
+                <th class="text-center">Date</th>
+                <th class="text-center">Meal</th>
+                <th class="text-center">What you ate</th>
+                <th class="text-center">How much you got</th>
+                <th class="text-center">Healthy rate</th>
+                <th class="text-center" colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for r in rs%}
+            <tr>
+                <td class="text-center">{{r[2]}}</td>
+                <td class="text-center">{{r[6]}}</td>
+                <td class="text-center">{{r[3]}}</td>
+                <td class="text-center">{{'{:,d} Cal.'.format(r[4])}}</td>
+                <td class="text-center">{{r[5]}}</td>
+                <td class="text-center"><a class="btn btn-sm btn-fix-6" href="/update/{{r[0]}}">Update</a></td>
+                <td class="text-center"><a class="btn btn-sm btn-fix-6" href="/delete/{{r[0]}}">Delete</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

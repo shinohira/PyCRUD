@@ -1,0 +1,49 @@
+{%extends "layout.html"%}
+
+{%block content%}
+
+<div class="container grid-xl">
+    <form method="POST">
+        <div class="form-group">
+
+            <label class="form-label" for="date">Date
+                <input class="form-input col-2" type="date" id="date" name="date" value="{{date}}" min="2000-01-01" max="2050-12-31" required {%if mode=='continue' or action=='delete'%}readonly{%else%}autofocus{%endif%} />
+            </label>
+            <div class="form-group">Meal<br>
+                <label class="form-radio form-inline">
+                    <input type="radio" name="meal" value="Breakfast" {%if meal=='Breakfast'%}checked{%endif%} {%if (mode=='continue' or action=='delete') and meal!='Breakfast'%}disabled{%endif%} /><i class="form-icon"></i>Breakfast
+                </label>
+                <label class="form-radio form-inline">
+                    <input type="radio" name="meal" value="Lunch" {%if meal=='Lunch'%}checked{%endif%} {%if (mode=='continue' or action=='delete') and meal!='Lunch'%}disabled{%endif%} /><i class="form-icon"></i>Lunch
+                </label>
+                <label class="form-radio form-inline">
+                    <input type="radio" name="meal" value="Supper" {%if meal=='Supper'%}checked{%endif%} {%if (mode=='continue' or action=='delete') and meal!='Supper'%}disabled{%endif%} /><i class="form-icon"></i>Supper
+                </label>
+            </div>
+            <label class="form-label" for="what">What you ate
+                <input class="form-input col-6" type="text" id="what" name="what" value="{{what}}" pattern="[a-zA-Z0-9 -/:-@\[-\`\{-\~]+" maxlength="128" required {%if mode=='continue' or action=='delete'%}readonly{%endif%} />
+            </label>
+            <label class="form-label" for="cal">Cal. you got
+                <input class="form-input col-2 text-right" type="number" id="cal" name="cal" value="{{cal}}" min="0" max="10000" required {%if mode=='continue' or action=='delete'%}readonly{%endif%} />
+            </label>
+            <label class="form-label" for="rate">Your healthy rate
+                <input class="slider tooltip container grid-sm absolute" type="range" id="rate" name="rate" value="{{rate}}" min="0" max="100" step="5" required oninput="this.setAttribute('value', this.value);" />
+            </label>
+        </div>
+        <br>
+        {%if mode=='continue' or action=='delete'%}
+        <button class="btn btn-primary btn-fix-10 m-2" type="submit" name="mode" value="confirm">Confirm</button>
+        {%if mode=='continue'%}
+        <button class="btn btn-fix-10 m-2" type="submit" name="mode" value="previous">Previous...</button>
+        {%else%}
+        <a class="btn btn-fix-10 m-2" href="/">Cancel</a>
+        {%endif%}
+        {%else%}
+        <button class="btn btn-primary btn-fix-10 m-2" type="submit" name="mode" value="continue">Continue...</button>
+        <a class="btn btn-fix-10 m-2" href="/">Cancel</a>
+        {%endif%}
+
+    </form>
+</div>
+
+{%endblock%}

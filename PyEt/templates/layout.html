@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/spectre-icons.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/spectre-exp.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/spectre.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+    <link rel="shortcut icon" href="/static/img/icon.png">
+</head>
+
+<body>
+    <div class="container grid-xxl">
+        <header class="navbar sticky">
+            <section class="navbar-section">
+                <a class="navbar-brand mr-2" href="/">
+                    <img src="/static/img/icon.png" style="vertical-align: middle; width:6%; height: auto" />Py-Et
+                </a>
+            </section>
+            <section class="navbar-section">
+                {%if mode=='home'%}
+                <a class="btn btn-primary btn-fix-6 m-2" href="/add/">Add New</a>
+                <a class="btn btn-fix-6 m-2" href="/logout/">Logout</a>
+                {%endif%}
+            </section>
+        </header>
+
+        <div class="mr-2">
+        {%for category, message in get_flashed_messages(with_categories=true)%}
+            <span class="{{category}}">{{message}}</span>
+        {%endfor%}
+        </div>        
+
+        {%block content%}{%endblock%}
+
+        <div class="divider"></div>
+        <footer>
+            <span>Designed by Spectre</span>
+        </footer>
+
+    </div>
+</body>
+</html>

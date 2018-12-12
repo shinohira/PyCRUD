@@ -1,0 +1,24 @@
+{%extends "layout.html"%}
+
+{%block content%}
+
+<div class="container grid-xl">
+    <form method="POST">
+        <div class="form-group">
+
+            <label class="form-label" for="user">User ID
+                <input class="form-input col-3" type="text" id="user" name="user" value="{{user}}" pattern="[a-zA-Z0-9 -/:-@\[-\`\{-\~]+" maxlength="12" required autofocus />
+            </label>
+            <label class="form-label" for="password">Password
+                <input class="form-input col-3" type="password" id="password" name="password" required />
+            </label>
+
+        </div>
+        <br>
+
+        <button class="btn btn-primary btn-fix-10 m-2" type="submit" name="mode" value="login">Log In</button>
+
+    </form>
+</div>
+
+{%endblock%}
